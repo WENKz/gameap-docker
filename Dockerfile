@@ -12,7 +12,7 @@ USER gameap
 
 WORKDIR /var/www/gameap
 
-RUN git clone https://github.com/et-nik/gameap /var/www/gameap \
+RUN git clone --depth 1 --branch 3.0.0-beta10 https://github.com/et-nik/gameap /var/www/gameap \
     && cp .env.example .env \
     && composer install --no-interaction --no-ansi --prefer-dist --no-dev --optimize-autoloader \
     && php artisan key:generate --force \
